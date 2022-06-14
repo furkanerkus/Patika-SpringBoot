@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}"> <!--css ekledik.-->
+    <script th:src="@{/js/template.js}" ></script>
+</head>
+<body class="container">
+<!--starts code-->
+
+<h1 class="text-center text-primary">Thymeleaf3</h1>
+<h2 th:text="'Normal Thymeleaf-3'"></h2>
+<hr>
+<p th:text="${key_model1}"></p>
+
+<a href="/thymeleaf2" class="thymeleaf3">Click me</a>
+
+<!--ends codes-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
