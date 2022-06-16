@@ -5,5 +5,6 @@ public class IntellijShortCut {
     // alt + insert         ==>     Generator
     // ctrl + /             ==>     Single Comment
     // ctrl + shift + /     ==>     Multiple Comment
+    // ctrl + alt + L       ==>     Formatter
 
 }
