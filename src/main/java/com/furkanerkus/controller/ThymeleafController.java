@@ -5,12 +5,22 @@ import com.furkanerkus.dto.ProductDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
 @Controller
 public class ThymeleafController {
+
+    //opsiyonel: root {}
+    // http://localhost:8080
+    @GetMapping({"/", "index"})
+    public String index() {
+        return "index";
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
 
     // http://localhost:8080/thymeleaf1
     @GetMapping("/thymeleaf1") // EndPoint
@@ -58,7 +68,7 @@ public class ThymeleafController {
 
     // http://localhost:8080/thymeleaf6
     @GetMapping("/thymeleaf6") // EndPoint
-    public String getThymeleaf5ModelList(Model model) {
+    public String getThymeleaf6ModelList(Model model) {
         model.addAttribute("key_model1", "text");
         List<ProductDto> listem = new ArrayList<>();
 
@@ -83,4 +93,15 @@ public class ThymeleafController {
         return "thymeleaf6";
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    // http://localhost:8080/thymeleaf7
+    @GetMapping({"/thymeleaf7/{id}", "/thymeleaf7"})
+    public String getThymeleaf5ModelObject(Model model, @PathVariable(name = "id") Long id) {
+        if(id != null) {
+            model.addAttribute("key_model1", "id: " + id);
+        }else {
+            model.addAttribute("key_model1", "id bulunamadı");
+        }
+        return "thymeleaf7";
+    }
 }
