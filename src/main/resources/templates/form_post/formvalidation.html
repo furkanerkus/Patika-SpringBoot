@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FormValidation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="container bg-dark text-white">
+<!--starts code-->
+
+<p th:text="#{register}" class="display-1 text-uppercase text-center text-primary bordered mt-5"></p>
+<form th:method="post" th:action="@{/form}" th:object="${cv_teacher}">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-2 md-2">
+                <label th:text="#{nameandsurname}" for="namesurname"></label>
+            </div>
+            <div class="col-md-10 md-2">
+                <input th:field="*{teacherNameSurname}" type="text" class="form-control" placeholder="Adınız ve Soyadınız" id="namesurname" name="namesurname" autofocus>
+                <p class="text-danger" th:if="${#fields.hasErrors('teacherNameSurname')}" th:errors="*{teacherNameSurname}"></p>
+            </div>
+
+            <div class="col-md-2 md-2">
+                <label th:text="#{email}" for="email"></label>
+            </div>
+            <div class="col-md-10 md-2">
+                <input th:field="*{teacherEmail}" type="email" class="form-control" placeholder="Email Adresiniz" id="email" name="email" autofocus>
+                <p class="text-danger" th:if="${#fields.hasErrors('teacherEmail')}" th:errors="*{teacherEmail}"></p>
+            </div>
+
+            <div class="col-md-2 md-2">
+                <label th:text="#{password}" for="password"></label>
+            </div>
+            <div class="col-md-10 md-2">
+                <input th:field="*{teacherPassword}" type="password" class="form-control" placeholder="Şifreniz" id="password" name="password" autofocus>
+                <p class="text-danger" th:if="${#fields.hasErrors('teacherPassword')}" th:errors="*{teacherPassword}"></p>
+            </div>
+
+            <div class="col-md-2 md-2">
+            </div>
+            <div class="col-md-10 md-2">
+                <button th:text="#{clear}" type="reset" class="btn btn-danger"></button>
+                <button th:text="#{submit}" type="submit" class="btn btn-primary"></button>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+<!--ends codes-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
